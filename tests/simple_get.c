@@ -63,8 +63,9 @@ int main()
     }
 
     if(uri != NULL) {
-        if (*uri != NULL) {
-            free(*uri);
+        int i = 0;
+        while (uri[i] != NULL) {
+            free(uri[i++]);
         }
         free(uri);
     }
