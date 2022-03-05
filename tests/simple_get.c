@@ -61,5 +61,27 @@ int main()
         printf("Failed to free transaction\n");
         return 1;
     }
+
+    if(uri != NULL) {
+        if (*uri != NULL) {
+            free(*uri);
+        }
+        free(uri);
+    }
+    if (intervention != NULL) {
+        if (intervention->action != NULL) {
+            free(intervention->action);
+        }
+        if (intervention->log != NULL) {
+            free(intervention->log);
+        }
+        if (intervention->url != NULL) {
+            free(intervention->url);
+        }
+        free(intervention);
+    }
+    if (waf != NULL) {
+        free(waf);
+    }
     return 0;
 }
